@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Hé nhô Nhíii</title>
+<style>
+body {font-family: Arial; margin:0; background:#ffeef2; text-align:center;}
+.page {display:none; padding:40px;}
+.active {display:block;}
+button {padding:10px 20px; margin-top:20px; border:none; background:#ff6b81; color:white; border-radius:8px; cursor:pointer;}
+input {padding:10px; border-radius:8px; border:1px solid #ccc;}
+</style>
+</head>
+<body>
+
+<!-- Page 1: Password -->
+<div class="page active" id="page1">
+<h1>Món Bảo thích?</h1>
+<input type="password" id="password" placeholder="Nhập mật khẩu">
+<br>
+<button onclick="checkPassword()">Mở thư 💌</button>
+<p id="error" style="color:red"></p>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+<h1>Gửi chị Nhí 💖</h1>
+<p>Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
+Trong trí nhớ của em thì chị và em mới quen chỉ 1 năm nhưng có
+lẽ sự thật nhiều hơn thế...
+Em chúc chị làm bánh ngon hơn, em sẽ thử đầu tiên và khen
+chị thiệt lòng,chị sẽ mở quán thành công và suôn sẻ
+em sẽ là khách hàng đầu tiên nè Nhí.</p>
+<button onclick="nextPage(3)">Tiếp</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+<h1>Lời chúc từ em 🎂</h1>
+<p>Cảm ơn chị đã luôn ở bên, quan tâm và chăm sóc em.
+Chị mãi là người tuyệt vời nhất!
+Chị luôn hỏi han quan tâm em mặc dù em hơi ngại,
+dẫn em đi karaoke, dắt em đi ăn, đi mua bài,
+em đặc biệt ấn tượng với trình độ tiếng Anh
+tào lao của chị.</p>
+<button onclick="nextPage(4)">Tiếp</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+<h1>Sắp cưới rồi 💍</h1>
+<p>Chúc chị bước vào hành trình mới thật nhiều niềm vui,
+luôn hạnh phúc bên người mà em và chị đều yêu quý ❤️
+Em được về quê của chị,gặp mặt gia đình chị, lúc chia tay
+cuộc vui đó cũng là lần đầu tiên em thấy Nhí khóc...</p>
+<button onclick="nextPage(5)">Tiếp</button>
+</div>
+
+<!-- Page 5 -->
+<div class="page" id="page5">
+<h1>Yêu Nhí nhiều 💕</h1>
+<p>Dù sau này thế nào, chị vẫn luôn là thần cúng khi chơi bài của em.
+Chúc chị mãi hạnh phúc và được yêu thương thật nhiều!
+Mua thiệc nhiều takoyaki cho Bảo, chơi bài với Bảo nhiều nhiều lên,
+dẫn Bảo đi ăn nhiều khi gặp nè.</p>
+</div>
+
+<script>
+function checkPassword(){
+  const pass = document.getElementById('password').value;
+  if(pass === 'takoyaki'){
+    nextPage(2);
+  } else {
+    document.getElementById('error').innerText = 'Sai mật khẩu rồi 😢';
+  }
+}
+
+function nextPage(page){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page'+page).classList.add('active');
+}
+</script>
+
+</body>
+</html>
