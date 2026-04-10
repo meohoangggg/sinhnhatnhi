@@ -6,145 +6,164 @@
 <title>Thư cho chị Nhí 💖</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin:0;
+  margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  overflow:hidden;
+  overflow: hidden;
 }
 
+/* Page layout chuẩn mobile */
 .page {
-  display:none;
-  height:100vh;
-  width:100%;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  padding:20px;
-  box-sizing:border-box;
-  text-align:center;
-  animation: fade 0.8s ease;
+  display: none;
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px;
+  text-align: center;
+
+  animation: fade 0.6s ease;
 }
 
-.active {display:flex;}
+.active {
+  display: flex;
+}
 
 h1 {
-  color:white;
-  font-size:28px;
+  color: white;
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
 p {
-  color:white;
-  font-size:18px;
-  line-height:1.6;
+  color: white;
+  font-size: 17px;
+  max-width: 320px;
+  line-height: 1.6;
 }
 
 input {
-  padding:12px;
-  border:none;
-  border-radius:20px;
-  margin-top:20px;
-  width:70%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 280px;
+  margin-top: 15px;
+  text-align: center;
 }
 
 button {
-  margin-top:20px;
-  padding:12px 25px;
-  border:none;
-  border-radius:20px;
-  background:white;
-  color:#ff6b81;
-  font-weight:bold;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #ff6b81;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+/* Animation */
 @keyframes fade {
-  from {opacity:0; transform:translateY(20px);} 
-  to {opacity:1; transform:translateY(0);} 
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
-/* trái tim bay */
+/* Heart effect */
 .heart {
-  position:absolute;
-  color:#fff;
-  animation: float 6s linear infinite;
+  position: fixed;
+  bottom: -10px;
+  color: white;
+  animation: float 6s linear forwards;
 }
 
 @keyframes float {
-  from {transform:translateY(100vh) scale(1);} 
-  to {transform:translateY(-10vh) scale(1.5);} 
+  to {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- hearts -->
+<!-- HEARTS -->
 <script>
-setInterval(()=>{
-  const heart = document.createElement('div');
-  heart.className='heart';
-  heart.innerText='💖';
-  heart.style.left=Math.random()*100+'vw';
-  heart.style.fontSize=(Math.random()*20+20)+'px';
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
   document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},500);
+  setTimeout(() => heart.remove(), 6000);
+}, 400);
 </script>
 
-<!-- Page 1 -->
+<!-- PAGE 1 -->
 <div class="page active" id="page1">
-<h1>Món Bảo thích?</h1>
-<input type="password" id="password" placeholder="Nhập mật khẩu...">
-<button onclick="checkPassword()">Mở thư 💌</button>
-<p id="error"></p>
+  <h1>Món Bảo thích?</h1>
+  <input type="password" id="password" placeholder="Nhập mật khẩu...">
+  <button onclick="checkPassword()">Mở thư 💌</button>
+  <p id="error"></p>
 </div>
 
-<!-- Page 2 -->
+<!-- PAGE 2 -->
 <div class="page" id="page2">
-<h1>Chúc mừng sinh nhật chị Nhí 🎂</h1>
-<p>Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
+  <h1>Chúc mừng sinh nhật chị Nhí 🎂</h1>
+  <p>Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
 Trong trí nhớ của em thì chị và em mới quen chỉ 1 năm nhưng có
 lẽ sự thật nhiều hơn thế...
 Em chúc chị làm bánh ngon hơn, em sẽ thử đầu tiên và khen
 chị thiệt lòng,chị sẽ mở quán thành công và suôn sẻ
-em sẽ là khách hàng đầu tiên nè Nhí.</p>
-<button onclick="nextPage(3)">Tiếp →</button>
+em sẽ là khách hàng đầu tiên nè Nhí. 💕</p>
+  <button onclick="nextPage(3)">Tiếp →</button>
 </div>
 
-<!-- Page 3 -->
+<!-- PAGE 3 -->
 <div class="page" id="page3">
-<h1>Cảm ơn chị 💖</h1>
-<p>Cảm ơn chị đã luôn ở bên, quan tâm và chăm sóc em.
+  <h1>Cảm ơn chị 💖</h1>
+  <p>Cảm ơn chị đã luôn ở bên, quan tâm và chăm sóc em.
 Chị mãi là người tuyệt vời nhất!
 Chị luôn hỏi han quan tâm em mặc dù em hơi ngại,
 dẫn em đi karaoke, dắt em đi ăn, đi mua bài,
 em đặc biệt ấn tượng với trình độ tiếng Anh
 tào lao của chị.</p>
-<button onclick="nextPage(4)">Tiếp →</button>
+  <button onclick="nextPage(4)">Tiếp →</button>
 </div>
 
-<!-- Page 4 -->
+<!-- PAGE 4 -->
 <div class="page" id="page4">
-<h1>Tương lai của Nhí💍</h1>
-<p>Chúc chị bước vào hành trình mới thật nhiều niềm vui,
+  <h1>Sắp cưới rồi 💍</h1>
+  <p>Chúc chị bước vào hành trình mới thật nhiều niềm vui,
 luôn hạnh phúc bên người mà em và chị đều yêu quý ❤️
 Em được về quê của chị,gặp mặt gia đình chị, lúc chia tay
-cuộc vui đó cũng là lần đầu tiên em thấy Nhí khóc...</p>
-<button onclick="nextPage(5)">Tiếp →</button>
+cuộc vui đó cũng là lần đầu tiên em thấy Nhí khóc... ❤️</p>
+  <button onclick="nextPage(5)">Tiếp →</button>
 </div>
 
-<!-- Page 5 -->
+<!-- PAGE 5 -->
 <div class="page" id="page5">
-<h1>Yêu chị nhiều 💕</h1>
-<p>Dù sau này thế nào, chị vẫn luôn là thần cúng khi chơi bài của em.
+  <h1>Yêu chị nhiều 💕</h1>
+  <p>Dù sau này thế nào, chị vẫn luôn là thần cúng khi chơi bài của em.
 Chúc chị mãi hạnh phúc và được yêu thương thật nhiều!
 Mua thiệc nhiều takoyaki cho Bảo, chơi bài với Bảo nhiều nhiều lên,
-dẫn Bảo đi ăn nhiều khi gặp nè.💖</p>
+dẫn Bảo đi ăn nhiều khi gặp nè. 💖</p>
 </div>
 
 <script>
 function checkPassword(){
-  const pass = document.getElementById('password').value;
+  const pass = document.getElementById('password').value.trim();
   if(pass === 'takoyaki'){
     nextPage(2);
   } else {
