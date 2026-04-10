@@ -2,67 +2,144 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Hé nhô Nhíii</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thư cho chị Nhí 💖</title>
+
 <style>
-body {font-family: Arial; margin:0; background:#ffeef2; text-align:center;}
-.page {display:none; padding:40px;}
-.active {display:block;}
-button {padding:10px 20px; margin-top:20px; border:none; background:#ff6b81; color:white; border-radius:8px; cursor:pointer;}
-input {padding:10px; border-radius:8px; border:1px solid #ccc;}
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow:hidden;
+}
+
+.page {
+  display:none;
+  height:100vh;
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:20px;
+  box-sizing:border-box;
+  text-align:center;
+  animation: fade 0.8s ease;
+}
+
+.active {display:flex;}
+
+h1 {
+  color:white;
+  font-size:28px;
+}
+
+p {
+  color:white;
+  font-size:18px;
+  line-height:1.6;
+}
+
+input {
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  margin-top:20px;
+  width:70%;
+}
+
+button {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  color:#ff6b81;
+  font-weight:bold;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(20px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
+
+/* trái tim bay */
+.heart {
+  position:absolute;
+  color:#fff;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from {transform:translateY(100vh) scale(1);} 
+  to {transform:translateY(-10vh) scale(1.5);} 
+}
 </style>
 </head>
+
 <body>
 
-<!-- Page 1: Password -->
+<!-- hearts -->
+<script>
+setInterval(()=>{
+  const heart = document.createElement('div');
+  heart.className='heart';
+  heart.innerText='💖';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(Math.random()*20+20)+'px';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},500);
+</script>
+
+<!-- Page 1 -->
 <div class="page active" id="page1">
 <h1>Món Bảo thích?</h1>
-<input type="password" id="password" placeholder="Nhập mật khẩu">
-<br>
+<input type="password" id="password" placeholder="Nhập mật khẩu...">
 <button onclick="checkPassword()">Mở thư 💌</button>
-<p id="error" style="color:red"></p>
+<p id="error"></p>
 </div>
 
 <!-- Page 2 -->
 <div class="page" id="page2">
-<h1>Gửi chị Nhí 💖</h1>
+<h1>Chúc mừng sinh nhật chị Nhí 🎂</h1>
 <p>Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
 Trong trí nhớ của em thì chị và em mới quen chỉ 1 năm nhưng có
 lẽ sự thật nhiều hơn thế...
 Em chúc chị làm bánh ngon hơn, em sẽ thử đầu tiên và khen
 chị thiệt lòng,chị sẽ mở quán thành công và suôn sẻ
 em sẽ là khách hàng đầu tiên nè Nhí.</p>
-<button onclick="nextPage(3)">Tiếp</button>
+<button onclick="nextPage(3)">Tiếp →</button>
 </div>
 
 <!-- Page 3 -->
 <div class="page" id="page3">
-<h1>Lời chúc từ em 🎂</h1>
+<h1>Cảm ơn chị 💖</h1>
 <p>Cảm ơn chị đã luôn ở bên, quan tâm và chăm sóc em.
 Chị mãi là người tuyệt vời nhất!
 Chị luôn hỏi han quan tâm em mặc dù em hơi ngại,
 dẫn em đi karaoke, dắt em đi ăn, đi mua bài,
 em đặc biệt ấn tượng với trình độ tiếng Anh
 tào lao của chị.</p>
-<button onclick="nextPage(4)">Tiếp</button>
+<button onclick="nextPage(4)">Tiếp →</button>
 </div>
 
 <!-- Page 4 -->
 <div class="page" id="page4">
-<h1>Sắp cưới rồi 💍</h1>
+<h1>Tương lai của Nhí💍</h1>
 <p>Chúc chị bước vào hành trình mới thật nhiều niềm vui,
 luôn hạnh phúc bên người mà em và chị đều yêu quý ❤️
 Em được về quê của chị,gặp mặt gia đình chị, lúc chia tay
 cuộc vui đó cũng là lần đầu tiên em thấy Nhí khóc...</p>
-<button onclick="nextPage(5)">Tiếp</button>
+<button onclick="nextPage(5)">Tiếp →</button>
 </div>
 
 <!-- Page 5 -->
 <div class="page" id="page5">
-<h1>Yêu Nhí nhiều 💕</h1>
+<h1>Yêu chị nhiều 💕</h1>
 <p>Dù sau này thế nào, chị vẫn luôn là thần cúng khi chơi bài của em.
 Chúc chị mãi hạnh phúc và được yêu thương thật nhiều!
 Mua thiệc nhiều takoyaki cho Bảo, chơi bài với Bảo nhiều nhiều lên,
-dẫn Bảo đi ăn nhiều khi gặp nè.</p>
+dẫn Bảo đi ăn nhiều khi gặp nè.💖</p>
 </div>
 
 <script>
@@ -71,7 +148,7 @@ function checkPassword(){
   if(pass === 'takoyaki'){
     nextPage(2);
   } else {
-    document.getElementById('error').innerText = 'Sai mật khẩu rồi 😢';
+    document.getElementById('error').innerText = 'Sai rồi 😢';
   }
 }
 
