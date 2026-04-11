@@ -1,97 +1,11 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thư cho chị Nhí 💖</title>
-
-<style>
-body{
-  margin:0;
-  font-family:sans-serif;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-}
-
-.page{
-  display:none;
-  position:fixed;
-  inset:0;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-}
-
-.active{display:flex;}
-
-h1{color:white;}
-p{
-  color:white;
-  max-width:320px;
-  white-space:pre-line;
-}
-
-input,button{
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  margin-top:10px;
-}
-</style>
-</head>
-
+<html>
 <body>
 
-<!-- PAGE 1 -->
-<div class="page active" id="p1">
-  <h1>Món Bảo thích?</h1>
-  <input id="pass">
-  <button onclick="login()">Mở thư</button>
-  <p id="err"></p>
-</div>
-
-<!-- PAGE 2 -->
-<div class="page" id="p2">
-  <h1>Chúc mừng sinh nhật 🎂</h1>
-  <p>Chúc chị Nhí luôn vui vẻ và hạnh phúc 💕</p>
-  <button onclick="go(3)">Tiếp</button>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page" id="p3">
-  <h1>Cảm ơn chị 💖</h1>
-  <p>Cảm ơn chị đã luôn ở bên em!</p>
-  <button onclick="go(4)">Tiếp</button>
-</div>
-
-<!-- PAGE 4 -->
-<div class="page" id="p4">
-  <h1>Sắp cưới rồi 💍</h1>
-  <p>Chúc chị hạnh phúc bên người mình yêu ❤️</p>
-  <button onclick="go(5)">Tiếp</button>
-</div>
-
-<!-- PAGE 5 -->
-<div class="page" id="p5">
-  <h1>Yêu chị nhiều 💕</h1>
-  <p>Chị mãi là chị của em!</p>
-</div>
+<h1>TEST OK</h1>
 
 <script>
-function login(){
-  const v=document.getElementById('pass').value.trim();
-  if(v==='takoyaki'){
-    go(2);
-  }else{
-    document.getElementById('err').innerText='Sai rồi 😢';
-  }
-}
-
-function go(n){
-  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
-  document.getElementById('p'+n).classList.add('active');
-}
+alert("JS chạy bình thường");
 </script>
 
 </body>
