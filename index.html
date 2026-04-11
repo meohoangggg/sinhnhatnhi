@@ -10,10 +10,9 @@ body{
   margin:0;
   font-family:-apple-system, sans-serif;
   background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-  overflow:hidden;
 }
 
-/* QUAN TRỌNG: KHÔNG có display:flex ở đây */
+/* layout */
 .page{
   display:none;
   position:fixed;
@@ -27,49 +26,35 @@ body{
   padding:20px;
 }
 
-.active{
-  display:flex;
+.active{display:flex;}
+
+h1{
+  color:white;
+  font-size:24px;
 }
 
-h1{color:white;font-size:24px;}
 p{
   color:white;
   max-width:320px;
-  white-space:pre-line;
+  line-height:1.6;
+  white-space: pre-line;
 }
 
-/* input */
-input{
+/* input + button */
+input,button{
   padding:12px;
   border:none;
   border-radius:20px;
-  width:80%;
-  max-width:260px;
-  text-align:center;
+  margin-top:10px;
 }
 
-/* button */
 button{
-  margin-top:15px;
-  padding:12px 25px;
-  border:none;
-  border-radius:20px;
   background:white;
   color:#ff6b81;
   font-weight:bold;
 }
 
-/* hiệu ứng fade */
-.fade{
-  animation:fade 0.5s;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1;}
-}
-
-/* trái tim */
+/* heart */
 .heart{
   position:fixed;
   bottom:-20px;
@@ -87,14 +72,12 @@ button{
 
 <body>
 
-<!-- HEART -->
 <script>
 setInterval(function(){
   var h=document.createElement("div");
   h.className="heart";
   h.innerHTML="💖";
   h.style.left=Math.random()*100+"vw";
-  h.style.fontSize=(Math.random()*20+15)+"px";
   document.body.appendChild(h);
   setTimeout(function(){h.remove();},5000);
 },400);
@@ -111,40 +94,38 @@ setInterval(function(){
 <!-- PAGE 2 -->
 <div class="page" id="p2">
   <h1>Chúc mừng sinh nhật chị Nhí 🎂</h1>
-  <p>
-Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
-Em chúc chị làm bánh ngon hơn, mở quán thành công.
-Em sẽ là khách đầu tiên nè Nhí 💕
-  </p>
+  <p>Chúc chị một sinh nhật thật vui vẻ, luôn rạng rỡ và hạnh phúc!
+Trong trí nhớ của em thì chị và em mới quen chỉ 1 năm nhưng có lẽ sự thật nhiều hơn thế...
+Em chúc chị làm bánh ngon hơn, em sẽ thử đầu tiên và khen chị thiệt lòng.
+Chị sẽ mở quán thành công và suôn sẻ, em sẽ là khách hàng đầu tiên nè Nhí 💕</p>
   <button class="next" data-go="3">Tiếp →</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="p3">
   <h1>Cảm ơn chị 💖</h1>
-  <p>
-Cảm ơn chị đã luôn quan tâm và ở bên em.
+  <p>Cảm ơn chị đã luôn ở bên, quan tâm và chăm sóc em.
 Chị mãi là người tuyệt vời nhất!
-  </p>
+Dẫn em đi ăn, đi chơi, đi karaoke…
+Em ấn tượng nhất chắc là tiếng Anh “tào lao” của chị 😆</p>
   <button class="next" data-go="4">Tiếp →</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page" id="p4">
   <h1>Sắp cưới rồi 💍</h1>
-  <p>
-Chúc chị bước vào hành trình mới thật hạnh phúc ❤️
-  </p>
+  <p>Chúc chị bước vào hành trình mới thật nhiều niềm vui,
+luôn hạnh phúc bên người mà em và chị đều yêu quý ❤️
+Lần đầu thấy chị khóc… em nhớ mãi.</p>
   <button class="next" data-go="5">Tiếp →</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page" id="p5">
   <h1>Yêu chị nhiều 💕</h1>
-  <p>
-Dù sau này thế nào, chị vẫn luôn là chị của em.
-Nhớ mua takoyaki cho Bảo nha 😆
-  </p>
+  <p>Dù sau này thế nào, chị vẫn luôn là chị của em.
+Chúc chị mãi hạnh phúc 💖
+Nhớ mua nhiều takoyaki cho Bảo nha 😆</p>
 </div>
 
 <script>
@@ -158,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("p"+n).classList.add("active");
   }
 
-  // nút mở thư
   document.getElementById("btn").addEventListener("click", function(){
     var v=document.getElementById("pass").value.trim();
     if(v==="takoyaki"){
@@ -168,12 +148,10 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-  // nút tiếp
-  var nextBtns=document.getElementsByClassName("next");
-  for(var i=0;i<nextBtns.length;i++){
-    nextBtns[i].addEventListener("click", function(){
-      var n=this.getAttribute("data-go");
-      show(n);
+  var next=document.getElementsByClassName("next");
+  for(var i=0;i<next.length;i++){
+    next[i].addEventListener("click", function(){
+      show(this.getAttribute("data-go"));
     });
   }
 
